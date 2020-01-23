@@ -1,0 +1,37 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<table class="table">
+<thead>
+    <tr>
+        <th scope="col">Users</th>
+    </tr>
+</thead>
+<tbody>
+
+<div>
+
+    <div>
+      {% for row in data %}
+        <form action = "/users" method = post>
+          <tr >
+            <td> {{row.login}} </td>
+            <td> {{row.password}} </td>
+            <td> {{row.numb_group}} </td>
+            <td> {{row.year}} </td>
+
+            <td>
+                <button type="submit" class="btn btn-danger" name="del" value="{{row.login}}">Delete</button>
+            </td>
+            <td>
+                <button type="submit" class="btn btn-warning" name="edit" value="{{row.login}}">Edit</button>
+            </td>
+          </tr>
+        </form>
+      {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+

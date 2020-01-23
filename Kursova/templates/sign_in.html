@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+   <h1>{{ error }}</h1>
+
+    <div class="container">
+
+    <form action = "/sign_in" method = post>
+       <fieldset>
+           {{ form.hidden_tag() }}
+           <legend>Login</legend>
+           <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+              <div>
+                  <p>
+                      {{ form.login.label }}
+                      {{ form.login }}
+                  </p>
+                  <p>
+                      {{ form.password.label }}
+                      {{ form.password }}
+                  </p>
+              </div>
+
+             {{ form.submit }}
+          </div>
+
+       </fieldset>
+    </form>
+
+    </div>
+
+{% endblock %}

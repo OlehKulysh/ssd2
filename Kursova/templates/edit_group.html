@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Group Editing</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+<!-- D3.js -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <ul class="navbar-nav">
+    <li class="nav-item"><a class="nav-link" href="/buildings">Buildings</a></li>
+    <li class="nav-item"><a class="nav-link" href="/groups">Groups</a></li>
+    <li class="nav-item"><a class="nav-link" href="/users">Ssers</a></li>
+  </ul>
+
+</nav>
+
+<div class="container">
+
+    <h1>Group</h1>
+
+          <div>
+              <div class="border p-1 m-1">
+                  <p>
+                  {{row.name_group}}
+                  </p>
+              </div>
+          </div>
+
+    <form action = "/edit_group" method = post>
+        {{form.hidden_tag()}}
+       <fieldset>
+           <legend>Edit the Group</legend>
+           <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+              <div>
+                  {{ form.name_group.label }}      {{ form.name_group }}
+              </div>
+
+             {{ form.submit }}
+           </div>
+
+       </fieldset>
+    </form>
+
+</div>
+
+</body>
+</html>

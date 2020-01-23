@@ -1,0 +1,47 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<h1>{{ error }}</h1>
+<table class="table">
+<thead>
+    <tr>
+        <th scope="col"><h1>Groups</h1></th>
+    </tr>
+</thead>
+<tbody>
+
+    <div>
+
+      {% for row in data %}
+        <form action = "/groups" method = post>
+          <tr>
+              <td> {{row.name_group}} </td>
+              <td>
+                  <button name="del" type="submit" class="btn btn-danger" value="{{row.name_group}}">Delete</button>
+              </td>
+          </tr>
+        </form>
+      {% endfor %}
+    </div>
+</tbody>
+</table>
+
+<div>
+    <form action = "/groups" method = post>
+       <fieldset>
+           {{ form.hidden_tag() }}
+           <legend>Add a group</legend>
+           <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+              <div>
+                  {{ form.name_group.label }}      {{ form.name_group }}
+              </div>
+
+             {{ form.submit }}
+          </div>
+
+       </fieldset>
+    </form>
+</div>
+
+{% endblock %}
+

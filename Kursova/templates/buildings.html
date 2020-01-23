@@ -1,0 +1,49 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<h1>{{ error }}</h1>
+<table class="table">
+<thead>
+    <tr>
+        <th scope="col">Users</th>
+    </tr>
+</thead>
+<tbody>
+
+    <div>
+
+      {% for row in data %}
+        <form action = "/buildings" method = post>
+          <tr>
+              <td> {{row.numb_building}} </td>
+              <td> {{row.json}} </td>
+              <td>
+                  <button name="del" type="submit" class="btn btn-danger" value="{{row.numb_building}}">Delete</button>
+              </td>
+          </tr>
+        </form>
+      {% endfor %}
+    </div>
+</tbody>
+</table>
+
+
+<div>
+    <form action = "/buildings" method = post>
+       <fieldset>
+           {{ form.hidden_tag() }}
+           <legend>Add a building</legend>
+           <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+              <div>
+                  {{  form.numb_building.label  }}    {{  form.numb_building  }}
+                  {{ form.json.label }}               {{ form.json }}
+              </div>
+
+             {{ form.submit }}
+          </div>
+
+       </fieldset>
+    </form>
+</div>
+
+{% endblock %}

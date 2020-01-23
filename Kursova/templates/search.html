@@ -1,0 +1,32 @@
+{% if admin == "admin" %}
+    {% extends "admin.html" %}
+{% else %}
+    {% extends "user.html" %}
+{% endif %}
+
+{% block content %}
+
+<h1>{{ error }}</h1>
+<form action = "/search" method = post>
+   <fieldset>
+       {{ form.hidden_tag() }}
+       <legend>Search</legend>
+       <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+          <div>
+              <p>
+                  {{ form.building.label }}
+                  {{ form.building }}
+              </p>
+              <p>
+                  {{ form.audience.label }}
+                  {{ form.audience }}
+              </p>
+          </div>
+
+         {{ form.submit }}
+      </div>
+
+   </fieldset>
+</form>
+
+{% endblock %}

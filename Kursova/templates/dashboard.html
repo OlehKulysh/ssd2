@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+<!-- D3.js -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <ul class="navbar-nav">
+    <li class="nav-item"><a class="nav-link" href="/groups">Groups</a></li>
+    <li class="nav-item"><a class="nav-link" href="/subjects">Subjects</a></li>
+    <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+    <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+  </ul>
+
+</nav>
+
+<div id="chart1">
+
+</div>
+
+<div id="chart2">
+
+</div>
+
+<div id="input_div" class = "p-4">
+  <form action = "/dashboard" method = post>
+     <fieldset>
+         <legend>Plot parameters</legend>
+         <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+           <p>Enter the last character of the groups for which you want to make a plot:</p>
+           <input name="last_char" type="text"> <input name="submit_char" value="Submit" type="submit">
+         </div>
+     </fieldset>
+  </form>
+</div>
+
+<script type="text/javascript">
+    var graph1 = {{graphJSON1 | safe}};
+    var graph2 = {{graphJSON2 | safe}};
+    Plotly.plot('chart1', graph1, {});
+    Plotly.plot('chart2', graph2, {});
+</script>
+
+</body>
+</html>

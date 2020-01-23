@@ -1,0 +1,50 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<h2>{{ error }}</h2>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">User</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <td> {{row.login}} </td>
+                <td> {{row.password}} </td>
+                <td> {{row.numb_group}} </td>
+                <td> {{row.year}} </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">User</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <form action = "/edit_user" method = post>
+            <tr >
+                <td> {{form.password.label}} </td> <td> {{form.password}} </td>
+            </tr>
+            <tr >
+                <td> {{form.numb_group.label}} </td> <td> {{form.numb_group}} </td>
+            </tr>
+            <tr >
+                <td> {{form.year.label}} </td> <td> {{form.year}} </td>
+            </tr>
+            <tr >
+                <td> {{ form.submit }} </td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% if admin == "admin" %}
+    {% extends "admin.html" %}
+{% else %}
+    {% extends "user.html" %}
+{% endif %}
+
+
+{% block content %}
+    <form>
+        <tr class="table">
+            <td> {{userData[0].login}} </td>
+            <td> {{userData[0].password}} </td>
+            <td> {{userData[0].numb_group}} </td>
+            <td> {{userData[0].year}} </td>
+        </tr>
+    </form>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Requests</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in data %}
+        <form action = "/requests" method = post>
+            <tr >
+                <td> {{row.id}} </td>
+                <td> {{row.login}} </td>
+                <td> {{row.building}} </td>
+                <td> {{row.audience}} </td>
+                <td> {{row.time}} </td>
+                <td> {{row.data}} </td>
+
+                <td>
+                    <button name="del" type="submit" class="btn btn-danger" value={{row.id}}>Delete</button>
+                </td>
+            </tr>
+        </form>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <form action = "/requests" method = post>
+        <button type="submit" class="btn btn-danger" name="del_oll" value="{{form.login.data}}">Clear</button>
+    </form>
+ </div>
+
+{% endblock %}

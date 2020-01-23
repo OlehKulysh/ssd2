@@ -1,0 +1,21 @@
+{% if admin == "admin" %}
+    {% extends "admin.html" %}
+{% else %}
+    {% extends "user.html" %}
+{% endif %}
+
+{% block content %}
+
+<form action = "/map" method = post>
+   <fieldset>
+       <legend>Map</legend>
+       <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+          <div>
+            <p><img src="{{ form.json }}" width="1104"></p>
+
+          </div>
+      </div>
+
+   </fieldset>
+</form>
+{% endblock %}

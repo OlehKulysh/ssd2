@@ -1,0 +1,20 @@
+{
+  "name": "Laboratory2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "python3 main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlehKulysh/lab2-pstgre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlehKulysh/lab2-pstgre/issues"
+  },
+  "homepage": "https://github.com/OlehKulysh/lab2-pstgre#readme"
+}
